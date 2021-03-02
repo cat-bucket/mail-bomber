@@ -37,7 +37,7 @@ define('ZOOMEYE_PAGE_LIMIT',50);
 // 127.0.0.1:7890
 // 例子2：如果是socks5代理（要写socks5h，不是socks5）：
 // socks5h://127.0.0.1:10808
-define('PROXY','');
+define('PROXY','127.0.0.1:10808');
 
 // The timeout value for all http requests.
 // 对所有HTTP连接的超时时间
