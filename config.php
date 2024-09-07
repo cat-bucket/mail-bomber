@@ -5,17 +5,21 @@ define('USE_NODES_COUNT', 5000); // 一次轰炸时所用的最大接口节点�
 define('CONCURRENCY', 50); // 轰炸时HTTP最大并发连接数
 define('THREAD_POOL_SIZE', 20); // 执行 update-nodes 命令时的线程池大小
 
-// 用户输入Shodan API Key
-define('SHODAN_API_KEY', readline("输入Shodan API Key（可选）: "));
+// 检查是否已定义API Key和代理配置
+if (!defined('SHODAN_API_KEY')) {
+    define('SHODAN_API_KEY', readline("输入Shodan API Key（可选）: "));
+}
 
-// 用户输入ZoomEye API Key
-define('ZOOMEYE_API_KEY', readline("输入ZoomEye API Key（可选）: "));
+if (!defined('ZOOMEYE_API_KEY')) {
+    define('ZOOMEYE_API_KEY', readline("输入ZoomEye API Key（可选）: "));
+}
 
 // 默认设置
 define('ZOOMEYE_PAGE_LIMIT', 50); // 更新ZoomEye时限制的页面数量
 
-// 用户输入代理配置
-define('PROXY', readline("输入代理配置（例如：127.0.0.1:7890 或 socks5h://127.0.0.1:10808，留空使用默认127.0.0.1:10808）: ") ?: '127.0.0.1:10808');
+if (!defined('PROXY')) {
+    define('PROXY', readline("输入代理配置（例如：127.0.0.1:7890 或 socks5h://127.0.0.1:10808，留空使用默认127.0.0.1:10808）: ") ?: '127.0.0.1:10808');
+}
 
 // 默认设置
 define('TIMEOUT', 30); // 所有HTTP连接的超时时间
